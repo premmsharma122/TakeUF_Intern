@@ -71,18 +71,25 @@ This project features a unique geometric UI, a custom-ruled notes section, and a
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/premmsharma122/calendar-app.git
+```
 2️⃣ Install dependencies
+```bash
 npm install
+```
 3️⃣ Run development server
+```bash
 npm run dev
+```
 4️⃣ Open in browser
+```bash
 http://localhost:3000
+```
 ☁️ Deployment
 
 This project is deployed on Vercel with automatic CI/CD.
-
+```bash
 🔗 Live URL: https://take-uf-intern.vercel.app/
-
+```
 🤝 Contributing
 
 Contributions are welcome!
@@ -106,7 +113,7 @@ Open a Pull Request
 Prem Sharma
 
 GitHub: https://github.com/premmsharma122
-LinkedIn: https://www.linkedin.com/
+LinkedIn: [https://www.linkedin.com/](https://www.linkedin.com/in/prem-sharma-0a4b62291/)
 ⭐ Support
 
 If you like this project, give it a ⭐ on GitHub!
