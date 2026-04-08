@@ -2,48 +2,85 @@
 import React from 'react';
 import { format } from 'date-fns';
 
-export const Hero = ({ currentMonth, imageUrl }: any) => {
+export const Hero = ({ currentMonth, imageUrl }: { currentMonth: Date; imageUrl: string }) => {
   return (
-    <div className="h-full w-full relative bg-zinc-200 overflow-hidden">
-      
-      
-      <div className="absolute top-0 left-0 w-full h-4 flex justify-around px-4 z-30">
-        {[...Array(20)].map((_, i) => (
-          <div key={i} className="flex gap-[1.5px]">
-             <div className="w-[2px] h-6 bg-zinc-900 rounded-full -translate-y-3.5 shadow-md border-r border-zinc-600" />
-             <div className="w-[2px] h-6 bg-zinc-900 rounded-full -translate-y-3.5 shadow-md border-r border-zinc-600" />
-          </div>
-        ))}
-      </div>
+    <div className="relative w-full overflow-hidden bg-zinc-300" style={{ aspectRatio: '4 / 2.5' }}>
 
-      
-      <img src={imageUrl} className="h-full w-full object-cover" alt="Mountainscape" />
-
-      
-      {/* We use specific percentage points to define the curved wave shape. */}
-      <div 
-        className="absolute inset-0 bg-blue-600/80 mix-blend-multiply z-10" 
-        style={{ 
-          clipPath: 'polygon(0 75%, 20% 70%, 50% 85%, 80% 68%, 100% 60%, 100% 100%, 0% 100%)' 
-        }}
-      />
-      <div 
-        className="absolute inset-0 bg-blue-400/30 z-10" 
-        style={{ 
-          clipPath: 'polygon(0 85%, 60% 78%, 100% 92%, 100% 100%, 0% 100%)' 
-        }}
+      {/* ── PHOTO ── */}
+      <img
+        src={imageUrl}
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        alt="Calendar hero"
+        draggable={false}
       />
 
       
-      <div className="absolute bottom-6 right-8 text-white text-right leading-none z-20">
-        <h1 className="text-5xl font-light tracking-tighter uppercase drop-shadow-md">
+
+      {/* Main solid blue fill — right-side trapezoid */}
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          background: '#1565c0',
+          clipPath: 'polygon(35% 72%, 62% 60%, 100% 68%, 100% 100%, 0% 100%, 0% 88%)',
+        }}
+      />
+
+      {/* Left lighter-blue fill */}
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          background: '#1976d2',
+          clipPath: 'polygon(0% 88%, 35% 72%, 62% 60%, 62% 100%, 0% 100%)',
+        }}
+      />
+
+      
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          background: 'rgba(255,255,255,0.07)',
+          clipPath: 'polygon(0% 92%, 40% 86%, 70% 78%, 100% 84%, 100% 100%, 0% 100%)',
+        }}
+      />
+
+      {/* ── YEAR + MONTH TEXT ── */}
+      <div
+        className="absolute z-20 text-right"
+        style={{ bottom: '10%', right: '5%' }}
+      >
+        {/* Year — small, light weight */}
+        <p
+          className="text-white leading-none"
+          style={{
+            fontSize: 'clamp(13px, 3.5vw, 20px)',
+            fontWeight: 300,
+            letterSpacing: '0.05em',
+            opacity: 0.95,
+            marginBottom: '2px',
+          }}
+        >
+          {format(currentMonth, 'yyyy')}
+        </p>
+        {/* Month — large, bold, uppercase */}
+        <h1
+          className="text-white leading-none uppercase"
+          style={{
+            fontSize: 'clamp(22px, 7vw, 46px)',
+            fontWeight: 800,
+            letterSpacing: '-0.01em',
+            textShadow: '0 1px 4px rgba(0,0,0,0.18)',
+          }}
+        >
           {format(currentMonth, 'MMMM')}
         </h1>
-        <p className="text-xl font-bold opacity-60 mt-1.5">{format(currentMonth, 'yyyy')}</p>
       </div>
 
-      {/* 5. PAPER TEXTURE OVERLAY (For realism) */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] z-20" />
+     
+      <div
+        className="absolute top-0 left-0 right-0 z-30"
+        style={{ height: '4px', background: 'rgba(0,0,0,0.06)' }}
+      />
+
     </div>
   );
 };
