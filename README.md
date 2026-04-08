@@ -52,3 +52,22 @@ This project features a unique geometric UI, a custom-ruled notes section, and a
 ├── tailwind.config.ts # Custom theme & shadows
 └── package.json # Dependencies
 ```
+
+---
+
+## ⚛️ React vs Traditional Development
+
+| Feature              | React Implementation                              | Traditional HTML/JS                     |
+|---------------------|--------------------------------------------------|----------------------------------------|
+| State Management     | `useState` for instant UI updates                | Manual DOM manipulation                |
+| Component Design     | Modular (Hero, Grid, Notes)                     | Monolithic files                       |
+| Styling              | Tailwind CSS utility-first                      | Large CSS files                        |
+| Performance          | Optimized with Next.js & Turbopack              | Slower load & manual optimization      |
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/premmsharma122/calendar-app.git
